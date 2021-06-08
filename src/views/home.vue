@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.price }} €</p>
-                <a href="#" v-on:click="count" class="btn btn-info">Ajouter au panier</a>
+                <a href="#" v-on:click="count(product)" class="btn btn-info">Ajouter au panier</a>
             </div>
         </div>
     </div>
@@ -17,8 +17,11 @@
 
 export default {
     methods:{
-        count:function(){
-            this.$store.commit('updateCount');
+        count:function(shoe){
+            this.$store.commit('updatePanier', shoe);
+        },
+        addToCard:function(){
+            this.$store.dispatch('updatePanier');
         }
     },
     computed:{
