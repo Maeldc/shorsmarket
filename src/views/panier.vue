@@ -32,7 +32,6 @@ export default {
     },
     computed:{
         getPanier: function(){
-            this.total += getPanier.price; 
             return this.$store.getters.getPanier
         }
     },
